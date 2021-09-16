@@ -1,6 +1,8 @@
 # mkdocs3
 spinnaker doc
 
+
+
 ####               <h4 style="text-align:center;font-weight: bold;"><u>Deploying Spinnaker on Minikube (Kubernetes) using Hal</u></h4> 
 
 <p>&nbsp;</p>
@@ -31,6 +33,10 @@ spinnaker doc
 
 <center>[*for other OS , check this link*:](https://minikube.sigs.k8s.io/docs/start/) </center>
 
+---
+
+
+
 **Step 2 :** stalling kubectl   Install using native package management
 
 ```bash
@@ -49,18 +55,23 @@ spinnaker doc
 
 <center>*[for other OS , check this link]( https://kubernetes.io/docs/tasks/tools/)*</center>
 
- 
+---
+
+
 
 **Step 3**: Install halyard
 
 <center> [*check this link to download wrt to your OS*](https://minikube.sigs.k8s.io/docs/start/)</center> 
 
+---
 
 
 
 **Step 4:** Install minio for K8s
 
 <center> [*check this link to download wrt to your OS*](https://min.io/download#/kubernetes) : </center>
+
+---
 
 
 
@@ -69,6 +80,8 @@ spinnaker doc
 ```bash
 ·   minikube start --cpus 4 --memory 8192
 ```
+
+---
 
 
 
@@ -80,6 +93,8 @@ spinnaker doc
 
 
 
+---
+
 
 
 **Step 7**: configure for minikube deployment
@@ -90,6 +105,8 @@ At this point you should have the Minio server up and running alongside Minikube
 ·    kubectl get nodes
 ```
 
+---
+
 
 
 
@@ -99,7 +116,9 @@ At this point you should have the Minio server up and running alongside Minikube
 ·    kubectl minio tenant create tenant1 --servers 4 --volumes 16 --capacity 16Ti
 ```
 
- 
+----
+
+
 
 
 **Step 9**: setup spinnaker storage
@@ -114,6 +133,8 @@ At this point you should have the Minio server up and running alongside Minikube
 ```
 
 
+
+----
 
 
 
@@ -143,6 +164,8 @@ At least a docker registry is required for the Spinnaker kubernetes setup. You c
 
 ** *if the following error occurs ERROR Account "docker-private-repo" appears more than once? Change the name of the account in dockerRegistry***.***Change the name of your docker registry.***
 
+-----
+
 
 
 **Step 11:** You then need to enable the docker-registry provider:
@@ -155,17 +178,25 @@ At least a docker registry is required for the Spinnaker kubernetes setup. You c
 
 
 
+----
+
 
 
  **Step 12**: Configure the Spinnaker K8’s provider:
 
 ```
-·  hal config provider kubernetes account add my-k8s-account --docker-registries dockerhub --context $(kubectl config current-context)·  hal config provider kubernetes enable·  hal config deploy edit --type=distributed --account-name my-k8s-account
+·  hal config provider kubernetes account add my-k8s-account --docker-registries dockerhub --context $(kubectl config current-context)
+
+·  hal config provider kubernetes enable
+
+·  hal config deploy edit --type=distributed --account-name my-k8s-account
 ```
 
 
 
 check and change your kubernetes account name , if it gives some error.
+
+----
 
 
 
@@ -185,7 +216,9 @@ To setup the desired version:
 ·   hal config version edit --version 1.8.0
 ```
 
-​                   
+---
+
+
 
  **Step 14** **:** Deploy Spinnaker to minikube
 
@@ -206,6 +239,8 @@ To setup the desired version:
 
 
 
+----
+
 
 
  **Step 15 :** Connect to Spinnaker
@@ -224,9 +259,13 @@ Open your browser and go to http://localhost:9000/
 
 
 
- 
+![spinak](C:\Users\AP086540\pro\mypro\docs\img\spinak.png)
 
 
+
+
+
+![spinak3](https://spinnaker.io/docs/guides/user/pipeline/managing-pipelines/images/pipelines-tab.png)
 
  
 
